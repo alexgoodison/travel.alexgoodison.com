@@ -30,6 +30,7 @@ export default function GamePage() {
   const [wrongGuessedCountries, setWrongGuessedCountries] = useState<
     Set<string>
   >(new Set());
+  const [askedCountries, setAskedCountries] = useState<Set<string>>(new Set());
   const [gameMode, setGameMode] = useState<"countries" | "capitals">(
     "countries",
   );
@@ -111,11 +112,37 @@ export default function GamePage() {
       );
     }
 
+    // Filter out already asked countries
+    availableCodes = availableCodes.filter((code) => !askedCountries.has(code));
+
+    // If no countries left, reset the game
+    if (availableCodes.length === 0) {
+      setAskedCountries(new Set());
+      setScore(0);
+      setRound(0);
+      setGuessedCountries(new Set());
+      setWrongGuessedCountries(new Set());
+
+      // Re-filter to get all available countries again
+      availableCodes = countryData.codes;
+      if (gameMode === "capitals") {
+        availableCodes = availableCodes.filter(
+          (code) => countryData.capitals[code],
+        );
+      }
+      if (selectedContinent !== "all") {
+        availableCodes = availableCodes.filter(
+          (code) => countryData.continents[code] === selectedContinent,
+        );
+      }
+    }
+
     if (availableCodes.length === 0) return;
 
     const randomIndex = Math.floor(Math.random() * availableCodes.length);
     const countryCode = availableCodes[randomIndex];
     setCurrentCountry(countryCode);
+    setAskedCountries((prev) => new Set(prev).add(countryCode));
     setUserAnswer("");
     setIsCorrect(null);
     setRound((prev) => prev + 1);
@@ -137,6 +164,7 @@ export default function GamePage() {
   // Reset and select new country when game mode changes
   useEffect(() => {
     if (countryData && !loading) {
+      setAskedCountries(new Set());
       setCurrentCountry(null);
       setIsCorrect(null);
       setUserAnswer("");
@@ -154,6 +182,7 @@ export default function GamePage() {
     if (countryData && !loading && selectedContinent) {
       setScore(0);
       setRound(0);
+      setAskedCountries(new Set());
       setGuessedCountries(new Set());
       setWrongGuessedCountries(new Set());
       setCurrentCountry(null);
@@ -193,7 +222,11 @@ export default function GamePage() {
     const normalizedCorrectName = correctAnswer.toLowerCase();
 
     // Use fuzzy matching (allows 1-2 character differences)
-    const correct = isFuzzyMatch(normalizedUserAnswer, normalizedCorrectName, 2);
+    const correct = isFuzzyMatch(
+      normalizedUserAnswer,
+      normalizedCorrectName,
+      2,
+    );
     setIsCorrect(correct);
 
     if (correct) {
