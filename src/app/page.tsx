@@ -134,7 +134,7 @@ export default function Home() {
           longitude: 4,
           latitude: 60,
           zoom: 3.2,
-          pitch: 50,
+          pitch: 45,
         }}
       >
         <LocationMarkers viewMode={viewMode} />
