@@ -1,0 +1,282 @@
+{
+  "2021": [
+    {
+      "date": "2021-01-15",
+      "origin": [-6.2603, 53.3498],
+      "destination": [16.3713, 48.2081],
+      "originName": "Dublin",
+      "destinationName": "Vienna",
+      "countryCode": "AT"
+    }
+  ],
+  "2022": [
+    {
+      "date": "2022-01-15",
+      "origin": [-8.9215, 52.7012],
+      "destination": [-0.1278, 51.5074],
+      "originName": "Shannon",
+      "destinationName": "London",
+      "countryCode": "GB"
+    },
+    {
+      "date": "2022-02-01",
+      "origin": [-0.1278, 51.5074],
+      "destination": [-122.4194, 37.7749],
+      "originName": "London",
+      "destinationName": "San Francisco",
+      "countryCode": "US"
+    },
+    {
+      "date": "2022-03-01",
+      "origin": [-6.2603, 53.3498],
+      "destination": [7.262, 43.7102],
+      "originName": "Dublin",
+      "destinationName": "Nice",
+      "countryCode": "FR"
+    }
+  ],
+  "2023": [
+    {
+      "date": "2023-01-15",
+      "origin": [-8.9215, 52.7012],
+      "destination": [-87.6298, 41.8781],
+      "originName": "Shannon",
+      "destinationName": "Chicago",
+      "countryCode": "US"
+    },
+    {
+      "date": "2023-02-01",
+      "origin": [-87.6298, 41.8781],
+      "destination": [-90.1994, 38.627],
+      "originName": "Chicago",
+      "destinationName": "St. Louis",
+      "countryCode": "US"
+    },
+    {
+      "date": "2023-03-01",
+      "origin": [-8.4756, 51.8985],
+      "destination": [-0.1278, 51.5074],
+      "originName": "Cork",
+      "destinationName": "London",
+      "countryCode": "GB"
+    },
+    {
+      "date": "2023-04-01",
+      "origin": [-8.4756, 51.8985],
+      "destination": [12.3155, 45.4408],
+      "originName": "Cork",
+      "destinationName": "Venice",
+      "countryCode": "IT"
+    }
+  ],
+  "2024": [
+    {
+      "date": "2024-01-15",
+      "origin": [-6.2603, 53.3498],
+      "destination": [9.19, 45.4642],
+      "originName": "Dublin",
+      "destinationName": "Milan",
+      "countryCode": "IT"
+    }
+  ],
+  "2025": [
+    {
+      "date": "2025-01-15",
+      "origin": [-6.2603, 53.3498],
+      "destination": [4.9041, 52.3676],
+      "originName": "Dublin",
+      "destinationName": "Amsterdam",
+      "countryCode": "NL"
+    },
+    {
+      "date": "2025-02-01",
+      "origin": [4.9041, 52.3676],
+      "destination": [18.0686, 59.3293],
+      "originName": "Amsterdam",
+      "destinationName": "Stockholm",
+      "countryCode": "SE"
+    },
+    {
+      "date": "2025-02-15",
+      "origin": [18.0686, 59.3293],
+      "destination": [-6.2603, 53.3498],
+      "originName": "Stockholm",
+      "destinationName": "Dublin",
+      "countryCode": "IE"
+    },
+    {
+      "date": "2025-03-01",
+      "origin": [-6.2603, 53.3498],
+      "destination": [7.262, 43.7102],
+      "originName": "Dublin",
+      "destinationName": "Nice",
+      "countryCode": "FR"
+    },
+    {
+      "date": "2025-03-15",
+      "origin": [-8.9215, 52.7012],
+      "destination": [-0.1278, 51.5074],
+      "originName": "Shannon",
+      "destinationName": "London",
+      "countryCode": "GB"
+    },
+    {
+      "date": "2025-04-01",
+      "origin": [-0.1278, 51.5074],
+      "destination": [-0.75328, 39.48401],
+      "originName": "London",
+      "destinationName": "Valencia",
+      "countryCode": "ES"
+    },
+    {
+      "date": "2025-04-15",
+      "origin": [-0.75328, 39.48401],
+      "destination": [-8.4756, 51.8985],
+      "originName": "Valencia",
+      "destinationName": "Cork",
+      "countryCode": "IE"
+    },
+    {
+      "date": "2025-05-01",
+      "origin": [-6.2603, 53.3498],
+      "destination": [2.3522, 48.8566],
+      "originName": "Dublin",
+      "destinationName": "Paris",
+      "countryCode": "FR"
+    },
+    {
+      "date": "2025-05-15",
+      "origin": [2.3522, 48.8566],
+      "destination": [12.5683, 55.6761],
+      "originName": "Paris",
+      "destinationName": "Copenhagen",
+      "countryCode": "DK"
+    },
+    {
+      "date": "2025-06-01",
+      "origin": [12.5683, 55.6761],
+      "destination": [-6.2603, 53.3498],
+      "originName": "Copenhagen",
+      "destinationName": "Dublin",
+      "countryCode": "IE"
+    },
+    {
+      "date": "2025-06-15",
+      "origin": [-6.2603, 53.3498],
+      "destination": [-3.3655, 40.4011],
+      "originName": "Dublin",
+      "destinationName": "Madrid",
+      "countryCode": "ES"
+    },
+    {
+      "date": "2025-07-01",
+      "origin": [-3.3655, 40.4011],
+      "destination": [-2.97794, 53.41058],
+      "originName": "Madrid",
+      "destinationName": "Liverpool",
+      "countryCode": "GB"
+    },
+    {
+      "date": "2025-07-15",
+      "origin": [-2.97794, 53.41058],
+      "destination": [-8.4756, 51.8985],
+      "originName": "Liverpool",
+      "destinationName": "Cork",
+      "countryCode": "IE"
+    },
+    {
+      "date": "2025-08-01",
+      "origin": [-8.9215, 52.7012],
+      "destination": [19.0402, 47.4979],
+      "originName": "Shannon",
+      "destinationName": "Budapest",
+      "countryCode": "HU"
+    },
+    {
+      "date": "2025-08-15",
+      "origin": [19.0402, 47.4979],
+      "destination": [16.8719, 41.1177],
+      "originName": "Budapest",
+      "destinationName": "Bari",
+      "countryCode": "IT"
+    },
+    {
+      "date": "2025-09-01",
+      "origin": [16.8719, 41.1177],
+      "destination": [-5.9845, 37.3891],
+      "originName": "Bari",
+      "destinationName": "Seville",
+      "countryCode": "ES"
+    },
+    {
+      "date": "2025-09-15",
+      "origin": [-5.9845, 37.3891],
+      "destination": [-8.4756, 51.8985],
+      "originName": "Seville",
+      "destinationName": "Cork",
+      "countryCode": "IE"
+    },
+    {
+      "date": "2025-10-01",
+      "origin": [-6.2603, 53.3498],
+      "destination": [-74.006, 40.7128],
+      "originName": "Dublin",
+      "destinationName": "New York",
+      "countryCode": "US"
+    },
+    {
+      "date": "2025-10-15",
+      "origin": [-8.4756, 51.8985],
+      "destination": [-0.1278, 51.5074],
+      "originName": "Cork",
+      "destinationName": "London",
+      "countryCode": "GB"
+    }
+  ],
+  "2026": [
+    {
+      "date": "2026-01-26",
+      "origin": [-8.4756, 51.8985],
+      "destination": [-0.1278, 51.5074],
+      "originName": "Cork",
+      "destinationName": "London",
+      "countryCode": "GB"
+    },
+    {
+      "date": "2026-02-15",
+      "origin": [-0.1278, 51.5074],
+      "destination": [-68.4055, 18.5820],
+      "originName": "London",
+      "destinationName": "Punta Cana",
+      "countryCode": "DO",
+      "upcoming": true
+    },
+    {
+      "date": "2026-02-25",
+      "origin": [-68.4055, 18.5820],
+      "destination": [-79.3832, 43.6532],
+      "originName": "Punta Cana",
+      "destinationName": "Toronto",
+      "countryCode": "CA",
+      "upcoming": true
+    },
+    {
+      "date": "2026-03-05",
+      "origin": [-79.3832, 43.6532],
+      "destination": [-6.2603, 53.3498],
+      "originName": "Toronto",
+      "destinationName": "Dublin",
+      "countryCode": "IE",
+      "upcoming": true
+    },
+    {
+      "date": "2026-03-15",
+      "origin": [-6.2603, 53.3498],
+      "destination": [2.1896, 41.3769],
+      "originName": "Dublin",
+      "destinationName": "Barcelona",
+      "countryCode": "ES",
+      "upcoming": true
+    }
+  ]
+}

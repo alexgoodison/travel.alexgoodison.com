@@ -1,0 +1,97 @@
+export const cityToImages: Record<string, string[]> = {
+  London: [
+    "/travel/london/1.jpeg",
+    "/travel/london/2.jpeg",
+    "/travel/london/3.jpeg",
+  ],
+  Manchester: [
+    "/travel/manchester/1.jpeg",
+    "/travel/manchester/2.jpeg",
+    "/travel/manchester/3.jpeg",
+  ],
+  Paris: [
+    "/travel/paris/1.jpeg",
+    "/travel/paris/2.jpeg",
+    "/travel/paris/3.jpeg",
+  ],
+  Nice: [
+    "/travel/nice/1.jpeg",
+    "/travel/nice/2.jpeg",
+    "/travel/nice/3.jpeg",
+  ],
+  Malaga: [
+    "/travel/malaga/1.jpeg",
+    "/travel/malaga/2.jpeg",
+    "/travel/malaga/3.jpeg",
+  ],
+  Madrid: [
+    "/travel/madrid/1.jpeg",
+    "/travel/madrid/2.jpeg",
+    "/travel/madrid/3.jpeg",
+  ],
+  Cork: [
+    "/travel/cork/1.jpeg",
+    "/travel/cork/2.jpeg",
+    "/travel/cork/3.jpeg",
+  ],
+  Milan: [
+    "/travel/milan/1.jpeg",
+    "/travel/milan/2.jpeg",
+    "/travel/milan/3.jpeg",
+  ],
+  Stockholm: [
+    "/travel/stockholm/1.jpeg",
+    "/travel/stockholm/2.jpeg",
+    "/travel/stockholm/3.jpeg",
+  ],
+  Munich: [
+    "/travel/munich/1.jpeg",
+    "/travel/munich/2.jpeg",
+    "/travel/munich/3.jpeg",
+  ],
+  Amsterdam: [
+    "/travel/amsterdam/1.jpeg",
+    "/travel/amsterdam/2.jpeg",
+    "/travel/amsterdam/3.jpeg",
+  ],
+  Dubai: [
+    "/travel/dubai/1.jpeg",
+    "/travel/dubai/2.jpeg",
+    "/travel/dubai/3.jpeg",
+  ],
+  Sydney: [
+    "/travel/sydney/1.jpeg",
+    "/travel/sydney/2.jpeg",
+    "/travel/sydney/3.jpeg",
+  ],
+  "St. Louis": [
+    "/travel/st. louis/1.jpeg",
+    "/travel/st. louis/2.jpeg",
+    "/travel/st. louis/3.jpeg",
+  ],
+  "San Francisco": [
+    "/travel/san francisco/1.jpeg",
+    "/travel/san francisco/2.jpeg",
+    "/travel/san francisco/3.jpeg",
+  ],
+  "New York": [
+    "/travel/new york/1.jpeg",
+    "/travel/new york/2.jpeg",
+    "/travel/new york/3.jpeg",
+  ],
+  Vienna: [
+    "/travel/vienna/1.jpeg",
+    "/travel/vienna/2.jpeg",
+    "/travel/vienna/3.jpeg",
+  ],
+  Copenhagen: [
+    "/travel/copenhagen/1.jpeg",
+    "/travel/copenhagen/2.jpeg",
+    "/travel/copenhagen/3.jpeg",
+  ],
+  Budapest: [
+    "/travel/budapest/1.jpeg",
+    "/travel/budapest/2.jpeg",
+    "/travel/budapest/3.jpeg",
+  ],
+};
