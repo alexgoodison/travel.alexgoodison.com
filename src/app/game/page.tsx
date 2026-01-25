@@ -207,6 +207,16 @@ export default function GamePage() {
     }
   }, [currentCountry, isCorrect]);
 
+  const moveToNextCountry = () => {
+    setIsCorrect(null);
+    setUserAnswer("");
+    selectRandomCountry();
+    // Focus the input after a brief delay to ensure it's enabled
+    setTimeout(() => {
+      inputRef.current?.focus();
+    }, 100);
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!currentCountry || !countryData) return;
@@ -232,20 +242,15 @@ export default function GamePage() {
     if (correct) {
       setScore((prev) => prev + 1);
       setGuessedCountries((prev) => new Set(prev).add(currentCountry));
+      // Move to next country immediately for correct answers
+      moveToNextCountry();
     } else {
       setWrongGuessedCountries((prev) => new Set(prev).add(currentCountry));
-    }
-
-    // Move to next country after 2 seconds regardless of correct/incorrect
-    setTimeout(() => {
-      setIsCorrect(null);
-      setUserAnswer("");
-      selectRandomCountry();
-      // Focus the input after a brief delay to ensure it's enabled
+      // Move to next country after 2 seconds for incorrect answers (to show feedback)
       setTimeout(() => {
-        inputRef.current?.focus();
-      }, 100);
-    }, 2000);
+        moveToNextCountry();
+      }, 2000);
+    }
   };
 
   return (
