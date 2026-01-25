@@ -5,6 +5,8 @@ import countriesData from "@/data/countries.json";
 let cachedData: {
   coordinates: Record<string, [number, number]>;
   names: Record<string, string>;
+  capitals: Record<string, string>;
+  continents: Record<string, string>;
   codes: string[];
 } | null = null;
 
@@ -16,6 +18,8 @@ export async function GET() {
   try {
     const coordinates: Record<string, [number, number]> = {};
     const names: Record<string, string> = {};
+    const capitals: Record<string, string> = {};
+    const continents: Record<string, string> = {};
     const codes: string[] = [];
 
     countriesData.forEach((country) => {
@@ -28,11 +32,17 @@ export async function GET() {
         const [latitude, longitude] = country.latlng;
         coordinates[country.country_code] = [longitude, latitude];
         names[country.country_code] = country.name;
+        if (country.capital) {
+          capitals[country.country_code] = country.capital;
+        }
+        if (country.continent) {
+          continents[country.country_code] = country.continent;
+        }
         codes.push(country.country_code);
       }
     });
 
-    const result = { coordinates, names, codes };
+    const result = { coordinates, names, capitals, continents, codes };
     cachedData = result;
 
     console.log(`Returning ${codes.length} countries`);
