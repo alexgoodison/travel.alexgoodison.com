@@ -3,6 +3,10 @@ export const cityToImages: Record<string, string[]> = {
     "/travel/london/1.jpeg",
     "/travel/london/2.jpeg",
     "/travel/london/3.jpeg",
+    "/travel/london/4.jpeg",
+    "/travel/london/5.jpeg",
+    "/travel/london/6.jpeg",
+    "/travel/london/7.jpeg",
   ],
   Manchester: [
     "/travel/manchester/1.jpeg",
@@ -78,6 +82,10 @@ export const cityToImages: Record<string, string[]> = {
     "/travel/new york/1.jpeg",
     "/travel/new york/2.jpeg",
     "/travel/new york/3.jpeg",
+    "/travel/new york/4.jpeg",
+    "/travel/new york/5.jpeg",
+    "/travel/new york/6.jpeg",
+    "/travel/new york/7.jpeg",
   ],
   Vienna: [
     "/travel/vienna/1.jpeg",
