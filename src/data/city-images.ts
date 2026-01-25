@@ -94,4 +94,5 @@ export const cityToImages: Record<string, string[]> = {
     "/travel/budapest/2.jpeg",
     "/travel/budapest/3.jpeg",
   ],
+  Ostuni: ["/travel/ostuni/1.webp"],
 };

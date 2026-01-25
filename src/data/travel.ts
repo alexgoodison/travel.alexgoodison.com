@@ -113,4 +113,10 @@ export const markersData = [
     lng: 19.0402,
     emoji: "🇭🇺",
   },
+  {
+    text: "Ostuni",
+    lat: 40.7292,
+    lng: 17.5775,
+    emoji: "🇮🇹",
+  },
 ];
