@@ -2,7 +2,10 @@
   "IE": [
     "/travel/cork/1.jpeg",
     "/travel/cork/2.jpeg",
-    "/travel/cork/3.jpeg"
+    "/travel/cork/3.jpeg",
+    "/travel/kerry/1.jpeg",
+    "/travel/kerry/2.jpeg",
+    "/travel/kerry/3.jpeg"
   ],
   "GB": [
     "/travel/london/1.jpeg",
@@ -20,6 +23,9 @@
     "/travel/paris/1.jpeg",
     "/travel/paris/2.jpeg",
     "/travel/paris/3.jpeg",
+    "/travel/paris/4.jpeg",
+    "/travel/paris/5.jpeg",
+    "/travel/paris/6.jpeg",
     "/travel/nice/1.jpeg",
     "/travel/nice/2.jpeg",
     "/travel/nice/3.jpeg"
@@ -96,5 +102,7 @@
   "PT": [],
   "MC": [],
   "MA": [],
-  "NZ": []
+  "NZ": [
+    "/travel/auckland/1.jpeg"
+  ]
 }

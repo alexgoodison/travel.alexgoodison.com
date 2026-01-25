@@ -119,4 +119,16 @@ export const markersData = [
     lng: 17.5775,
     emoji: "🇮🇹",
   },
+  {
+    text: "Auckland",
+    lat: -36.8485,
+    lng: 174.7633,
+    emoji: "🇳🇿",
+  },
+  {
+    text: "Kerry",
+    lat: 52.0599,
+    lng: -9.5073,
+    emoji: "🇮🇪",
+  },
 ];

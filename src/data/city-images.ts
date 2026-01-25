@@ -17,6 +17,9 @@ export const cityToImages: Record<string, string[]> = {
     "/travel/paris/1.jpeg",
     "/travel/paris/2.jpeg",
     "/travel/paris/3.jpeg",
+    "/travel/paris/4.jpeg",
+    "/travel/paris/5.jpeg",
+    "/travel/paris/6.jpeg",
   ],
   Nice: [
     "/travel/nice/1.jpeg",
@@ -103,4 +106,10 @@ export const cityToImages: Record<string, string[]> = {
     "/travel/budapest/3.jpeg",
   ],
   Ostuni: ["/travel/ostuni/1.webp"],
+  Auckland: ["/travel/auckland/1.jpeg"],
+  Kerry: [
+    "/travel/kerry/1.jpeg",
+    "/travel/kerry/2.jpeg",
+    "/travel/kerry/3.jpeg",
+  ],
 };
