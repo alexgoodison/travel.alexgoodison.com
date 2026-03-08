@@ -36,6 +36,11 @@ export const cityToImages: Record<string, string[]> = {
     "/travel/madrid/2.jpeg",
     "/travel/madrid/3.jpeg",
   ],
+  Barcelona: [
+    "/travel/barcelona/1.jpeg",
+    "/travel/barcelona/2.jpeg",
+    "/travel/barcelona/3.jpeg",
+  ],
   Cork: [
     "/travel/cork/1.jpeg",
     "/travel/cork/2.jpeg",
@@ -111,5 +116,10 @@ export const cityToImages: Record<string, string[]> = {
     "/travel/kerry/1.jpeg",
     "/travel/kerry/2.jpeg",
     "/travel/kerry/3.jpeg",
+  ],
+  "Punta Cana": [
+    "/travel/punta cana/1.jpeg",
+    "/travel/punta cana/2.jpeg",
+    "/travel/punta cana/3.jpeg",
   ],
 };

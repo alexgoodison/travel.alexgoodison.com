@@ -108,6 +108,12 @@ export const markersData = [
     emoji: "🇪🇸",
   },
   {
+    text: "Barcelona",
+    lat: 41.3851,
+    lng: 2.1734,
+    emoji: "🇪🇸",
+  },
+  {
     text: "Budapest",
     lat: 47.4979,
     lng: 19.0402,
@@ -130,5 +136,11 @@ export const markersData = [
     lat: 52.0599,
     lng: -9.5073,
     emoji: "🇮🇪",
+  },
+  {
+    text: "Punta Cana",
+    lat: 18.5816,
+    lng: -68.3694,
+    emoji: "🇩🇴",
   },
 ];

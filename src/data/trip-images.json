@@ -36,7 +36,10 @@
     "/travel/madrid/3.jpeg",
     "/travel/malaga/1.jpeg",
     "/travel/malaga/2.jpeg",
-    "/travel/malaga/3.jpeg"
+    "/travel/malaga/3.jpeg",
+    "/travel/barcelona/1.jpeg",
+    "/travel/barcelona/2.jpeg",
+    "/travel/barcelona/3.jpeg"
   ],
   "IT": [
     "/travel/milan/1.jpeg",
@@ -98,6 +101,11 @@
     "/travel/sydney/1.jpeg",
     "/travel/sydney/2.jpeg",
     "/travel/sydney/3.jpeg"
+  ],
+  "DO": [
+    "/travel/punta cana/1.jpeg",
+    "/travel/punta cana/2.jpeg",
+    "/travel/punta cana/3.jpeg"
   ],
   "PT": [],
   "MC": [],
