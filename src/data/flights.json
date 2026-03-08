@@ -249,25 +249,25 @@
       "originName": "London",
       "destinationName": "Punta Cana",
       "countryCode": "DO",
-      "upcoming": true
+      "upcoming": false
     },
     {
       "date": "2026-02-25",
       "origin": [-68.4055, 18.5820],
-      "destination": [-79.3832, 43.6532],
+      "destination": [8.6821, 50.1109],
       "originName": "Punta Cana",
-      "destinationName": "Toronto",
-      "countryCode": "CA",
-      "upcoming": true
+      "destinationName": "Frankfurt",
+      "countryCode": "DE",
+      "upcoming": false
     },
     {
       "date": "2026-03-05",
-      "origin": [-79.3832, 43.6532],
-      "destination": [-6.2603, 53.3498],
-      "originName": "Toronto",
-      "destinationName": "Dublin",
-      "countryCode": "IE",
-      "upcoming": true
+      "origin": [8.6821, 50.1109],
+      "destination": [2.1734, 41.3851],
+      "originName": "Frankfurt",
+      "destinationName": "Barcelona",
+      "countryCode": "ES",
+      "upcoming": false
     },
     {
       "date": "2026-03-15",
@@ -276,7 +276,7 @@
       "originName": "Dublin",
       "destinationName": "Barcelona",
       "countryCode": "ES",
-      "upcoming": true
+      "upcoming": false
     }
   ]
 }
