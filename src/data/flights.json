@@ -271,11 +271,11 @@
     },
     {
       "date": "2026-03-15",
-      "origin": [-6.2603, 53.3498],
-      "destination": [2.1896, 41.3769],
-      "originName": "Dublin",
-      "destinationName": "Barcelona",
-      "countryCode": "ES",
+      "origin": [2.1896, 41.3769],
+      "destination": [-6.2603, 53.3498],
+      "originName": "Barcelona",
+      "destinationName": "Dublin",
+      "countryCode": "IE",
       "upcoming": false
     }
   ]
