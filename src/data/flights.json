@@ -231,6 +231,14 @@
       "originName": "Cork",
       "destinationName": "London",
       "countryCode": "GB"
+    },
+    {
+      "date": "2026-03-21",
+      "origin": [-0.4543, 51.47],
+      "destination": [7.1427, 50.8659],
+      "originName": "Heathrow",
+      "destinationName": "Cologne",
+      "countryCode": "DE"
     }
   ],
   "2026": [

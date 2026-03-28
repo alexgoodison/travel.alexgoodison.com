@@ -48,6 +48,12 @@ export const markersData = [
     emoji: "🇩🇪",
   },
   {
+    text: "Cologne",
+    lat: 50.9375,
+    lng: 6.9603,
+    emoji: "🇩🇪",
+  },
+  {
     text: "Amsterdam",
     lat: 52.3676,
     lng: 4.9041,

@@ -61,6 +61,7 @@ export const cityToImages: Record<string, string[]> = {
     "/travel/munich/2.jpeg",
     "/travel/munich/3.jpeg",
   ],
+  Cologne: ["/travel/cologne/1.jpeg", "/travel/cologne/2.jpeg"],
   Amsterdam: [
     "/travel/amsterdam/1.jpeg",
     "/travel/amsterdam/2.jpeg",
