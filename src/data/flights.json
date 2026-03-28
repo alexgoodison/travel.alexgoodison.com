@@ -231,14 +231,6 @@
       "originName": "Cork",
       "destinationName": "London",
       "countryCode": "GB"
-    },
-    {
-      "date": "2026-03-21",
-      "origin": [-0.4543, 51.47],
-      "destination": [7.1427, 50.8659],
-      "originName": "Heathrow",
-      "destinationName": "Cologne",
-      "countryCode": "DE"
     }
   ],
   "2026": [
@@ -284,6 +276,15 @@
       "originName": "Barcelona",
       "destinationName": "Dublin",
       "countryCode": "IE",
+      "upcoming": false
+    },
+    {
+      "date": "2026-03-21",
+      "origin": [-0.1278, 51.5074],
+      "destination": [7.1427, 50.8659],
+      "originName": "London",
+      "destinationName": "Cologne",
+      "countryCode": "DE",
       "upcoming": false
     }
   ]
