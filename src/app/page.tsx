@@ -5,6 +5,7 @@ import MapProvider from "@/lib/mapbox/provider";
 import LocationMarkers from "@/components/location-markers";
 import FlightPaths from "@/components/flight-paths";
 import ScratchMapLayer from "@/components/scratch-map-layer";
+import ScratchMapCounter from "@/components/scratch-map-counter";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Select,
@@ -36,89 +37,93 @@ export default function Home() {
     <div className="w-screen h-screen relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-1/3 z-10 pointer-events-auto">
         {/* Mode Tabs */}
-        <div className="p-6 flex items-center gap-2">
-          <Tabs
-            value={viewMode}
-            onValueChange={handleTabChange}
-            className="w-auto"
-          >
-            <TabsList className="bg-black/40 backdrop-blur-sm border border-white/20">
-              <TabsTrigger
-                value="gallery"
-                className="text-white/80 hover:text-white data-[state=active]:bg-white/20 data-[state=active]:text-white"
-              >
-                <Images className=" h-4 w-4" />
-                Gallery
-              </TabsTrigger>
-              <TabsTrigger
-                value="scratch-map"
-                className="text-white/80 hover:text-white data-[state=active]:bg-white/20 data-[state=active]:text-white"
-              >
-                <Map className="h-4 w-4" />
-                Scratch Map
-              </TabsTrigger>
-              <TabsTrigger
-                value="flights"
-                className="text-white/80 hover:text-white data-[state=active]:bg-white/20 data-[state=active]:text-white"
-              >
-                <Plane className="h-4 w-4" />
-                Flights
-              </TabsTrigger>
-              <TabsTrigger
-                value="game"
-                className="text-white/80 hover:text-white data-[state=active]:bg-white/20 data-[state=active]:text-white"
-              >
-                <Gamepad2 className="h-4 w-4" />
-                Game
-              </TabsTrigger>
-            </TabsList>
-          </Tabs>
+        <div className="p-6 flex items-start justify-between gap-2">
+          <div className="flex items-center gap-2">
+            <Tabs
+              value={viewMode}
+              onValueChange={handleTabChange}
+              className="w-auto"
+            >
+              <TabsList className="bg-black/40 backdrop-blur-sm border border-white/20">
+                <TabsTrigger
+                  value="gallery"
+                  className="text-white/80 hover:text-white data-[state=active]:bg-white/20 data-[state=active]:text-white"
+                >
+                  <Images className=" h-4 w-4" />
+                  Gallery
+                </TabsTrigger>
+                <TabsTrigger
+                  value="scratch-map"
+                  className="text-white/80 hover:text-white data-[state=active]:bg-white/20 data-[state=active]:text-white"
+                >
+                  <Map className="h-4 w-4" />
+                  Scratch Map
+                </TabsTrigger>
+                <TabsTrigger
+                  value="flights"
+                  className="text-white/80 hover:text-white data-[state=active]:bg-white/20 data-[state=active]:text-white"
+                >
+                  <Plane className="h-4 w-4" />
+                  Flights
+                </TabsTrigger>
+                <TabsTrigger
+                  value="game"
+                  className="text-white/80 hover:text-white data-[state=active]:bg-white/20 data-[state=active]:text-white"
+                >
+                  <Gamepad2 className="h-4 w-4" />
+                  Game
+                </TabsTrigger>
+              </TabsList>
+            </Tabs>
 
-          {viewMode === "flights" && (
-            <Select value={selectedYear} onValueChange={setSelectedYear}>
-              <SelectTrigger className="h-9! w-[120px] bg-black/40! backdrop-blur-sm border-white/20! text-white/80 hover:text-white data-placeholder:text-white/80 px-2 py-1 [&_svg]:text-white/80">
-                <SelectValue placeholder="Select year" />
-              </SelectTrigger>
-              <SelectContent className="bg-black/40 backdrop-blur-sm border border-white/20">
-                <SelectItem
-                  value="2026"
-                  className="text-white/80 hover:text-white hover:bg-white/20 focus:bg-white/20"
-                >
-                  2026
-                </SelectItem>
-                <SelectItem
-                  value="2025"
-                  className="text-white/80 hover:text-white hover:bg-white/20 focus:bg-white/20"
-                >
-                  2025
-                </SelectItem>
-                <SelectItem
-                  value="2024"
-                  className="text-white/80 hover:text-white hover:bg-white/20 focus:bg-white/20"
-                >
-                  2024
-                </SelectItem>
-                <SelectItem
-                  value="2023"
-                  className="text-white/80 hover:text-white hover:bg-white/20 focus:bg-white/20"
-                >
-                  2023
-                </SelectItem>
-                <SelectItem
-                  value="2022"
-                  className="text-white/80 hover:text-white hover:bg-white/20 focus:bg-white/20"
-                >
-                  2022
-                </SelectItem>
-                <SelectItem
-                  value="2021"
-                  className="text-white/80 hover:text-white hover:bg-white/20 focus:bg-white/20"
-                >
-                  2021
-                </SelectItem>
-              </SelectContent>
-            </Select>
-          )}
+            {viewMode === "flights" && (
+              <Select value={selectedYear} onValueChange={setSelectedYear}>
+                <SelectTrigger className="h-9! w-[120px] bg-black/40! backdrop-blur-sm border-white/20! text-white/80 hover:text-white data-placeholder:text-white/80 px-2 py-1 [&_svg]:text-white/80">
+                  <SelectValue placeholder="Select year" />
+                </SelectTrigger>
+                <SelectContent className="bg-black/40 backdrop-blur-sm border border-white/20">
+                  <SelectItem
+                    value="2026"
+                    className="text-white/80 hover:text-white hover:bg-white/20 focus:bg-white/20"
+                  >
+                    2026
+                  </SelectItem>
+                  <SelectItem
+                    value="2025"
+                    className="text-white/80 hover:text-white hover:bg-white/20 focus:bg-white/20"
+                  >
+                    2025
+                  </SelectItem>
+                  <SelectItem
+                    value="2024"
+                    className="text-white/80 hover:text-white hover:bg-white/20 focus:bg-white/20"
+                  >
+                    2024
+                  </SelectItem>
+                  <SelectItem
+                    value="2023"
+                    className="text-white/80 hover:text-white hover:bg-white/20 focus:bg-white/20"
+                  >
+                    2023
+                  </SelectItem>
+                  <SelectItem
+                    value="2022"
+                    className="text-white/80 hover:text-white hover:bg-white/20 focus:bg-white/20"
+                  >
+                    2022
+                  </SelectItem>
+                  <SelectItem
+                    value="2021"
+                    className="text-white/80 hover:text-white hover:bg-white/20 focus:bg-white/20"
+                  >
+                    2021
+                  </SelectItem>
+                </SelectContent>
+              </Select>
+            )}
+          </div>
+
+          <ScratchMapCounter active={viewMode === "scratch-map"} />
         </div>
       </div>
 
