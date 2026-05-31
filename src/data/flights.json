@@ -286,6 +286,46 @@
       "destinationName": "Cologne",
       "countryCode": "DE",
       "upcoming": false
+    },
+    {
+      "date": "2026-04-01",
+      "origin": [-0.1903, 51.1537],
+      "destination": [9.19, 45.4642],
+      "originName": "London Gatwick",
+      "destinationName": "Milan",
+      "countryCode": "IT"
+    },
+    {
+      "date": "2026-04-15",
+      "origin": [9.19, 45.4642],
+      "destination": [-6.2603, 53.3498],
+      "originName": "Milan",
+      "destinationName": "Dublin",
+      "countryCode": "IE"
+    },
+    {
+      "date": "2026-05-01",
+      "origin": [0.2352, 51.8860],
+      "destination": [25.4794, 36.3992],
+      "originName": "London Stansted",
+      "destinationName": "Santorini",
+      "countryCode": "GR"
+    },
+    {
+      "date": "2026-05-15",
+      "origin": [23.9445, 37.9364],
+      "destination": [4.4844, 50.9014],
+      "originName": "Athens",
+      "destinationName": "Brussels",
+      "countryCode": "BE"
+    },
+    {
+      "date": "2026-06-01",
+      "origin": [4.4844, 50.9014],
+      "destination": [-6.2603, 53.3498],
+      "originName": "Brussels",
+      "destinationName": "Dublin",
+      "countryCode": "IE"
     }
   ]
 }
