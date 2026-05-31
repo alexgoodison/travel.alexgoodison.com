@@ -81,8 +81,8 @@ export default function ScratchMapCounter({ active }: ScratchMapCounterProps) {
 
         {/* Perforated divider with notches */}
         <div className="relative">
-          <div className="absolute -left-2 top-1/2 -translate-y-1/2 h-4 w-4 rounded-full bg-black/60" />
-          <div className="absolute -right-2 top-1/2 -translate-y-1/2 h-4 w-4 rounded-full bg-black/60" />
+          <div className="absolute -left-2 top-1/2 -translate-y-1/2 h-4 w-4 rounded-full bg-white/15" />
+          <div className="absolute -right-2 top-1/2 -translate-y-1/2 h-4 w-4 rounded-full bg-white/15" />
           <div className="border-t border-dashed border-white/20" />
         </div>
 

@@ -1,11 +1,12 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import MapProvider from "@/lib/mapbox/provider";
 import LocationMarkers from "@/components/location-markers";
 import FlightPaths from "@/components/flight-paths";
 import ScratchMapLayer from "@/components/scratch-map-layer";
 import ScratchMapCounter from "@/components/scratch-map-counter";
+import FlightList from "@/components/flight-list";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Select,
@@ -23,7 +24,11 @@ export default function Home() {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
   const router = useRouter();
   const [viewMode, setViewMode] = useState<ViewMode>("gallery");
-  const [selectedYear, setSelectedYear] = useState<string>("2025");
+  const [selectedYear, setSelectedYear] = useState<string>("2026");
+  const [hoveredFlightKey, setHoveredFlightKey] = useState<string | null>(null);
+  const [selectedFlightKey, setSelectedFlightKey] = useState<string | null>(
+    null,
+  );
 
   const handleTabChange = (value: string) => {
     if (value === "game") {
@@ -32,6 +37,12 @@ export default function Home() {
       setViewMode(value as ViewMode);
     }
   };
+
+  // Clear flight selection when leaving the flights tab or switching year
+  useEffect(() => {
+    setHoveredFlightKey(null);
+    setSelectedFlightKey(null);
+  }, [selectedYear, viewMode]);
 
   return (
     <div className="w-screen h-screen relative overflow-hidden">
@@ -127,6 +138,17 @@ export default function Home() {
         </div>
       </div>
 
+      <FlightList
+        active={viewMode === "flights"}
+        selectedYear={selectedYear}
+        hoveredKey={hoveredFlightKey}
+        selectedKey={selectedFlightKey}
+        onHover={setHoveredFlightKey}
+        onSelect={(key) =>
+          setSelectedFlightKey((prev) => (prev === key ? null : key))
+        }
+      />
+
       {/* Globe map - full screen container, globe positioned lower */}
       <div
         id="map-container"
@@ -143,7 +165,13 @@ export default function Home() {
         }}
       >
         <LocationMarkers viewMode={viewMode} />
-        <FlightPaths viewMode={viewMode} selectedYear={selectedYear} />
+        <FlightPaths
+          viewMode={viewMode}
+          selectedYear={selectedYear}
+          hoveredKey={hoveredFlightKey}
+          selectedKey={selectedFlightKey}
+          onHoverChange={setHoveredFlightKey}
+        />
         <ScratchMapLayer viewMode={viewMode} />
       </MapProvider>
     </div>

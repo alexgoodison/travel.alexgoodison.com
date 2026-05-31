@@ -3,32 +3,35 @@
 import { useEffect, useState } from "react";
 import { useMap } from "@/context/map-context";
 import * as turf from "@turf/turf";
-import flightsData from "@/data/flights.json";
+import flightsData from "@/data/flights";
+import { flightKey } from "@/components/flight-list";
 
 type ViewMode = "gallery" | "scratch-map" | "flights";
 
 type FlightPathsProps = {
   viewMode: ViewMode;
   selectedYear: string;
+  hoveredKey: string | null;
+  selectedKey: string | null;
+  onHoverChange: (key: string | null) => void;
 };
 
 export default function FlightPaths({
   viewMode,
   selectedYear,
+  hoveredKey,
+  selectedKey,
+  onHoverChange,
 }: FlightPathsProps) {
   const { map } = useMap();
   const [tooltip, setTooltip] = useState<{
     show: boolean;
-    cityName: string;
-    origin?: string;
-    destination?: string;
+    routes: { origin: string; destination: string }[];
     x: number;
     y: number;
   }>({
     show: false,
-    cityName: "",
-    origin: undefined,
-    destination: undefined,
+    routes: [],
     x: 0,
     y: 0,
   });
@@ -39,6 +42,9 @@ export default function FlightPaths({
         try {
           if (map.getLayer("flight-paths-hover")) {
             map.removeLayer("flight-paths-hover");
+          }
+          if (map.getLayer("flight-paths-highlight")) {
+            map.removeLayer("flight-paths-highlight");
           }
           if (map.getLayer("flight-paths")) {
             map.removeLayer("flight-paths");
@@ -75,17 +81,21 @@ export default function FlightPaths({
           originName: string;
           destinationName: string;
           upcoming?: boolean;
+          key: string;
         };
 
         const yearFlights =
           (flightsData as Record<string, any[]>)[selectedYear] || [];
-        const flightPaths: FlightPath[] = yearFlights.map((flight: any) => ({
-          origin: flight.origin as [number, number],
-          destination: flight.destination as [number, number],
-          originName: flight.originName,
-          destinationName: flight.destinationName,
-          upcoming: flight.upcoming || false,
-        }));
+        const flightPaths: FlightPath[] = yearFlights.map(
+          (flight: any, index: number) => ({
+            origin: flight.origin as [number, number],
+            destination: flight.destination as [number, number],
+            originName: flight.originName,
+            destinationName: flight.destinationName,
+            upcoming: flight.upcoming || false,
+            key: flightKey(flight, index),
+          }),
+        );
 
         // Create GeoJSON features for all flight paths
         const features = flightPaths.map((path: FlightPath) => {
@@ -111,6 +121,7 @@ export default function FlightPaths({
               origin: path.originName,
               destination: path.destinationName,
               upcoming: path.upcoming || false,
+              key: path.key,
             },
             geometry: {
               type: "LineString" as const,
@@ -163,6 +174,9 @@ export default function FlightPaths({
         // Remove existing sources and layers if they exist
         if (map.getLayer("flight-paths-hover")) {
           map.removeLayer("flight-paths-hover");
+        }
+        if (map.getLayer("flight-paths-highlight")) {
+          map.removeLayer("flight-paths-highlight");
         }
         if (map.getLayer("flight-paths")) {
           map.removeLayer("flight-paths");
@@ -226,6 +240,23 @@ export default function FlightPaths({
           },
         });
 
+        // Add highlight layer (emphasizes hovered/selected route)
+        map.addLayer({
+          id: "flight-paths-highlight",
+          type: "line",
+          source: "flight-paths",
+          layout: {
+            "line-join": "round",
+            "line-cap": "round",
+          },
+          filter: ["in", ["get", "key"], ["literal", []]],
+          paint: {
+            "line-color": "#ffffff",
+            "line-width": 5,
+            "line-opacity": 1,
+          },
+        });
+
         // Add circle layer for points with conditional color
         map.addLayer({
           id: "flight-path-points",
@@ -246,35 +277,62 @@ export default function FlightPaths({
         });
 
         // Add hover event listeners for tooltips on flight paths (routes)
+        // Chronological order of each flight (array order is chronological).
+        const orderByKey = new Map<string, number>(
+          flightPaths.map((p, i) => [p.key, i]),
+        );
+
         const handlePathMouseMove = (e: mapboxgl.MapLayerMouseEvent) => {
           if (!e.features || e.features.length === 0) return;
 
-          const feature = e.features[0];
-          const origin = feature.properties?.origin || "Unknown";
-          const destination = feature.properties?.destination || "Unknown";
+          // Collect every flight under the cursor (reversed routes overlap),
+          // deduping by key so each journey appears once.
+          const seen = new Set<string>();
+          const routes: {
+            origin: string;
+            destination: string;
+            key: string;
+          }[] = [];
+          for (const feature of e.features) {
+            const key = (feature.properties?.key as string) || "";
+            if (key) {
+              if (seen.has(key)) continue;
+              seen.add(key);
+            }
+            routes.push({
+              origin: feature.properties?.origin || "Unknown",
+              destination: feature.properties?.destination || "Unknown",
+              key,
+            });
+          }
+
+          // Oldest flight first, based on chronological array order.
+          routes.sort(
+            (a, b) =>
+              (orderByKey.get(a.key) ?? Infinity) -
+              (orderByKey.get(b.key) ?? Infinity),
+          );
 
           const canvasRect = map.getCanvasContainer().getBoundingClientRect();
           setTooltip({
             show: true,
-            cityName: "",
-            origin,
-            destination,
+            routes,
             x: e.point.x + canvasRect.left,
             y: e.point.y + canvasRect.top,
           });
 
+          onHoverChange(routes[0]?.key || null);
           map.getCanvas().style.cursor = "pointer";
         };
 
         const handlePathMouseLeave = () => {
           setTooltip({
             show: false,
-            cityName: "",
-            origin: undefined,
-            destination: undefined,
+            routes: [],
             x: 0,
             y: 0,
           });
+          onHoverChange(null);
           map.getCanvas().style.cursor = "";
         };
 
@@ -312,6 +370,9 @@ export default function FlightPaths({
           if (map.getLayer("flight-paths-hover")) {
             map.removeLayer("flight-paths-hover");
           }
+          if (map.getLayer("flight-paths-highlight")) {
+            map.removeLayer("flight-paths-highlight");
+          }
           if (map.getLayer("flight-paths")) {
             map.removeLayer("flight-paths");
           }
@@ -330,34 +391,82 @@ export default function FlightPaths({
       }
       setTooltip({
         show: false,
-        cityName: "",
-        origin: undefined,
-        destination: undefined,
+        routes: [],
         x: 0,
         y: 0,
       });
     };
   }, [map, viewMode, selectedYear]);
 
+  // Update the highlight layer when hovered/selected route changes
+  useEffect(() => {
+    if (!map || viewMode !== "flights") return;
+    const keys = [selectedKey, hoveredKey].filter(Boolean) as string[];
+    try {
+      if (map.getLayer("flight-paths-highlight")) {
+        map.setFilter("flight-paths-highlight", [
+          "in",
+          ["get", "key"],
+          ["literal", keys],
+        ]);
+      }
+    } catch (e) {
+      console.warn("Error updating flight highlight:", e);
+    }
+  }, [map, viewMode, selectedYear, hoveredKey, selectedKey]);
+
+  // Fly the camera to the selected route
+  useEffect(() => {
+    if (!map || viewMode !== "flights" || !selectedKey) return;
+    const yearFlights =
+      (flightsData as Record<string, any[]>)[selectedYear] || [];
+    const flight = yearFlights.find(
+      (f: any, index: number) => flightKey(f, index) === selectedKey,
+    );
+    if (!flight) return;
+
+    const origin = flight.origin as [number, number];
+    const destination = flight.destination as [number, number];
+    const sw: [number, number] = [
+      Math.min(origin[0], destination[0]),
+      Math.min(origin[1], destination[1]),
+    ];
+    const ne: [number, number] = [
+      Math.max(origin[0], destination[0]),
+      Math.max(origin[1], destination[1]),
+    ];
+
+    try {
+      map.fitBounds([sw, ne], {
+        padding: { top: 120, bottom: 120, left: 120, right: 360 },
+        maxZoom: 5,
+        duration: 1400,
+      });
+    } catch (e) {
+      console.warn("Error flying to flight:", e);
+    }
+  }, [map, viewMode, selectedYear, selectedKey]);
+
   return (
     <>
-      {tooltip.show && (
+      {tooltip.show && tooltip.routes.length > 0 && (
         <div
-          className="pointer-events-none fixed z-2000 rounded-md bg-black/80 px-3 py-1.5 text-sm text-white shadow-lg"
+          className="pointer-events-none fixed z-2000 rounded-md bg-black/80 px-3 py-1.5 text-sm text-white shadow-lg flex flex-col gap-0.5"
           style={{
             left: `${tooltip.x + 10}px`,
             top: `${tooltip.y - 10}px`,
             transform: "translateY(-100%)",
           }}
         >
-          {tooltip.origin && tooltip.destination && (
+          {tooltip.routes.map((route, index) => (
             <div
+              key={`${route.origin}-${route.destination}-${index}`}
               className="uppercase"
               style={{ fontFamily: "var(--font-space-mono), monospace" }}
             >
-              {tooltip.origin} → {tooltip.destination}
+              {route.origin} → {route.destination}
             </div>
-          )}
+          ))}
         </div>
       )}
     </>
