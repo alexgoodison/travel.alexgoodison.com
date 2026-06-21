@@ -2,6 +2,7 @@ export const airlines = {
   AegeanAirlines: "Aegean Airlines",
   AerLingus: "Aer Lingus",
   BritishAirways: "British Airways",
+  Delta: "Delta",
   EasyJet: "EasyJet",
   Eurowings: "Eurowings",
   Lufthansa: "Lufthansa",

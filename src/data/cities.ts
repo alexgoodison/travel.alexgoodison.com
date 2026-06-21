@@ -44,6 +44,7 @@ export const cities = {
   Santorini: { coordinates: [25.4794, 36.3992], countryCode: "GR" },
   Athens: { coordinates: [23.9445, 37.9364], countryCode: "GR" },
   Brussels: { coordinates: [4.4844, 50.9014], countryCode: "BE" },
+  Boston: { coordinates: [-71.0096, 42.3656], countryCode: "US" },
 } satisfies Record<string, City>;
 
 export type CityName = keyof typeof cities;

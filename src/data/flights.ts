@@ -76,6 +76,8 @@ const flights: Record<string, Flight[]> = {
     new Flight("Shannon", "London Heathrow", airlines.AerLingus),
     new Flight("London Stansted", "Cologne", airlines.Eurowings),
     new Flight("Cologne", "London Gatwick", airlines.Eurowings),
+    new Flight("London Heathrow", "Boston", airlines.Delta),
+    new Flight("New York", "London Heathrow", airlines.BritishAirways),
   ],
 };
 
