@@ -41,6 +41,7 @@ export const cities = {
   "London Heathrow": { coordinates: [-0.4543, 51.47], countryCode: "GB" },
   "London Gatwick": { coordinates: [-0.1903, 51.1537], countryCode: "GB" },
   "London Stansted": { coordinates: [0.2352, 51.886], countryCode: "GB" },
+  "London Luton": { coordinates: [-0.3717, 51.8747], countryCode: "GB" },
   Santorini: { coordinates: [25.4794, 36.3992], countryCode: "GR" },
   Athens: { coordinates: [23.9445, 37.9364], countryCode: "GR" },
   Brussels: { coordinates: [4.4844, 50.9014], countryCode: "BE" },

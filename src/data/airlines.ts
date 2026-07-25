@@ -11,6 +11,7 @@ export const airlines = {
   SAS: "SAS",
   UnitedAirlines: "United Airlines",
   Vueling: "Vueling",
+  WizzAir: "Wizz Air",
 } as const;
 
 export type Airline = (typeof airlines)[keyof typeof airlines];
