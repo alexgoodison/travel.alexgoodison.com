@@ -48,6 +48,7 @@ export const cities = {
   Boston: { coordinates: [-71.0096, 42.3656], countryCode: "US" },
   Asturias: { coordinates: [-6.0344, 43.5636], countryCode: "ES" },
   Zagreb: { coordinates: [15.9819, 45.815], countryCode: "HR" },
+  Cancun: { coordinates: [-86.8771, 21.0365], countryCode: "MX" },
 } satisfies Record<string, City>;
 
 export type CityName = keyof typeof cities;
