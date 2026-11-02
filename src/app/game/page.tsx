@@ -14,6 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { isFuzzyMatch } from "@/lib/fuzzy-match";
+import { countryFilter } from "@/lib/mapbox/country-filter";
 
 export default function GamePage() {
   const mapContainerRef = useRef<HTMLDivElement | null>(null);
@@ -537,7 +538,7 @@ function GameMap({
         }
 
         const guessedArray = Array.from(guessedCountries);
-        const filter: any[] = ["in", "iso_3166_1", ...guessedArray];
+        const filter = countryFilter(guessedArray);
 
         // Add fill layer for guessed countries
         map.addLayer({
@@ -617,7 +618,7 @@ function GameMap({
         }
 
         const wrongArray = Array.from(wrongGuessedCountries);
-        const filter: any[] = ["in", "iso_3166_1", ...wrongArray];
+        const filter = countryFilter(wrongArray);
 
         // Add fill layer for wrong guessed countries
         map.addLayer({
@@ -694,7 +695,7 @@ function GameMap({
           url: "mapbox://mapbox.country-boundaries-v1",
         });
 
-        const filter: any[] = ["==", "iso_3166_1", currentCountry];
+        const filter = countryFilter([currentCountry]);
 
         // Add border layer
         map.addLayer({

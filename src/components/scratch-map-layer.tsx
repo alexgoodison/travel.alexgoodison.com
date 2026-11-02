@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { useMap } from "@/context/map-context";
 import visitedCountries from "@/data/visited-countries.json";
+import { countryFilter } from "@/lib/mapbox/country-filter";
 
 type ViewMode = "gallery" | "scratch-map" | "flights";
 
@@ -59,7 +60,7 @@ export default function ScratchMapLayer({ viewMode }: ScratchMapLayerProps) {
           url: "mapbox://mapbox.country-boundaries-v1",
         });
 
-        const filter: any[] = ["in", "iso_3166_1", ...visitedCountries];
+        const filter = countryFilter(visitedCountries);
 
         // Add the fill layer
         map.addLayer({
